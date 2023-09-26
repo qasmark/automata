@@ -1,10 +1,51 @@
 import csv
+import subprocess
+import matplotlib.pyplot as plt
+import networkx as nx
 
-input_file = 'input_moore.csv'
+input_file = 'input_mealy.csv'
 output_file = 'output.csv'
-status = 'moore2mealy'
-# 'mealy2moore'
-# 'moore2mealy'
+output_graph_file = 'output_graph.csv'
+input_graph_file = 'input_graph.csv'
+status = 'mealy'
+# 'mealy'
+# 'moore'
+
+
+def vis_graph(filename):
+    with open(filename, 'r') as hf:
+        s = hf.read()
+
+    G = nx.DiGraph()
+    lines = s.strip().split('\n')
+    nodes_l = []
+    for line in lines[1:-1]:
+        idx, lbl = line.split(" ")
+        lbl = lbl[lbl.find('"') + 1:lbl.rfind('"')]
+        if '->' in idx:
+            delim = idx.find("-")
+            src = int(idx[:delim])
+            dst = int(idx[delim + 2:])
+
+            G.add_edge(nodes_l[src], nodes_l[dst], label=lbl)
+        else:
+            node_id = int(idx)
+            G.add_node(lbl)
+            nodes_l.append(lbl)
+
+    # Определение позиций узлов на графе
+    pos = nx.spring_layout(G)
+
+    # Рисование графа с помощью matplotlib
+    nx.draw_networkx(G, pos, with_labels=True, node_size=100, node_color='lightblue', font_size=10)
+
+    grafo_labels = nx.get_edge_attributes(G, 'label')
+    nodes = nx.get_node_attributes(G, 'label')
+    nx.draw_networkx_edge_labels(G, pos, edge_labels=grafo_labels)
+    # Отображение графика
+    plt.axis('off')
+    plt.show()
+    # nx.write_graphml(G, "keker.graphml")
 
 
 def get_list_states(s):
@@ -82,13 +123,23 @@ def get_output_signals_with_states(rows):
             if not rows[j][i].startswith('x'):
                 rows[j][i] += '/' + output_signal
                 rows[j][i].replace('q', 's')
-
-
     print(rows)
     return rows
 
+def draw_automata(status):
+    if status == 'mealy':
+        subprocess.call(['convert.exe', 'moore', output_file, output_graph_file])
+        subprocess.call(['convert.exe', status, input_file, input_graph_file])
+        vis_graph(output_graph_file)
+        vis_graph(input_graph_file)
+    elif status == 'moore':
+        subprocess.call(['convert.exe', 'mealy', output_file, output_graph_file])
+        subprocess.call(['convert.exe', status, input_file, input_graph_file])
+        vis_graph(output_graph_file)
+        vis_graph(input_graph_file)
 
-if status == 'mealy2moore':
+
+if status == 'mealy':
     with open(input_file, 'r') as csvfile:
         reader = csv.reader(csvfile)
 
@@ -126,8 +177,9 @@ if status == 'mealy2moore':
             writer = csv.writer(f, delimiter=';')
             for row in result:
                 writer.writerow(row)
+        draw_automata(status)
 
-elif status == 'moore2mealy':
+elif status == 'moore':
     with open(input_file, 'r') as csvfile:
         reader = csv.reader(csvfile)
 
@@ -144,6 +196,7 @@ elif status == 'moore2mealy':
         writer = csv.writer(f, delimiter=';')
         for row in result:
             writer.writerow(row)
-else:
-    print('Unknown transfer')
-    exit()
+    draw_automata(status)
+
+
+
