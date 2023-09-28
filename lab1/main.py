@@ -3,7 +3,7 @@ import subprocess
 import matplotlib.pyplot as plt
 import networkx as nx
 
-input_file = 'input_mealy.csv'
+input_file = 'input_mealy_5.csv'
 output_file = 'output.csv'
 output_graph_file = 'output_graph.csv'
 input_graph_file = 'input_graph.csv'
@@ -37,7 +37,7 @@ def vis_graph(filename):
     pos = nx.spring_layout(G)
 
     # Рисование графа с помощью matplotlib
-    nx.draw_networkx(G, pos, with_labels=True, node_size=100, node_color='lightblue', font_size=10)
+    nx.draw_networkx(G, pos, with_labels=True, node_size=400, node_color='lightblue', font_size=10)
 
     grafo_labels = nx.get_edge_attributes(G, 'label')
     nodes = nx.get_node_attributes(G, 'label')
@@ -164,6 +164,7 @@ if status == 'mealy':
         transition_table = get_output_states(input_signals, dict_of_states)
         get_truly_transfers(transition_table, dict_of_transfer)
 
+        print(dict_of_states)
         new_output_signals = [' '] + output_signals
         result_new_uniq_states = [' '] + new_uniq_states
 
