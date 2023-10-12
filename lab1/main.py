@@ -3,8 +3,8 @@ import subprocess
 import matplotlib.pyplot as plt
 import networkx as nx
 
-input_file = 'input_mealy_5.csv'
-output_file = 'output.csv'
+input_file = 'input_mealy_9.csv'
+output_file = 'input_moore_9.csv'
 output_graph_file = 'output_graph.csv'
 input_graph_file = 'input_graph.csv'
 status = 'mealy'
@@ -198,6 +198,5 @@ elif status == 'moore':
         for row in result:
             writer.writerow(row)
     draw_automata(status)
-
 
 
