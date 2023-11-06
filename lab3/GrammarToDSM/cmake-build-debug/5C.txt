@@ -1,4 +1,0 @@
-S -> aB
-B -> aC | aD | dB
-C -> aB
-D -> =
