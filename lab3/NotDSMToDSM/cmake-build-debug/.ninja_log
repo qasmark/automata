@@ -1,0 +1,7 @@
+# ninja log v5
+7	1422	7204345599544019	CMakeFiles/NotDSMToDSM.dir/src/MachineSaver/MachineSaver.cpp.obj	4d0abfb5b2b825ff
+1	1808	7204345603410423	CMakeFiles/NotDSMToDSM.dir/main.cpp.obj	70e2d36a6005aeec
+21	1854	7204345603878995	CMakeFiles/NotDSMToDSM.dir/src/Converter/EmptyStateRemover/EmptyStateRemover.cpp.obj	d9c09f0aa2d3ef58
+27	1888	7204345604220830	CMakeFiles/NotDSMToDSM.dir/src/TextParser/CSVTextParser.cpp.obj	30b482d2813bf82
+14	2372	7204345609059211	CMakeFiles/NotDSMToDSM.dir/src/Converter/DSMConverter.cpp.obj	1f35ad9f79f0595f
+2372	3174	7204345617022306	NotDSMToDSM.exe	d6b0649909c21e00

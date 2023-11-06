@@ -1,0 +1,6 @@
+# ninja log v5
+28	2205	7204345084159556	CMakeFiles/GrammarToDSM.dir/src/MachineSaver/MachineSaver.cpp.obj	73bb28158eb21615
+1	2734	7204345089445088	CMakeFiles/GrammarToDSM.dir/main.cpp.obj	55ca7000296c86d9
+11	3527	7204345097368780	CMakeFiles/GrammarToDSM.dir/src/GrammarParser/GrammarParser.cpp.obj	c63889d42502f95
+21	3686	7204345098962155	CMakeFiles/GrammarToDSM.dir/src/Converter/DSMConverter.cpp.obj	88d882de4dd3d369
+3686	4470	7204345106770098	GrammarToDSM.exe	4a82b6b1edc4558
