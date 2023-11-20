@@ -396,3 +396,6 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+lab3/GrammarToDSM/.idea/workspace.xml
+lab2/.idea/workspace.xml
+lab3/NotDSMToDSM/.idea/workspace.xml
