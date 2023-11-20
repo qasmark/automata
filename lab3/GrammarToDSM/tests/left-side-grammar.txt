@@ -1,4 +1,0 @@
-S -> Aa | H#
-A -> a | Bb
-B -> b | Bb
-H -> 
