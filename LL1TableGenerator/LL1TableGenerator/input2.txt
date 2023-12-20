@@ -1,0 +1,12 @@
+<PROG> - PROG id <VAR> begin <LISTST> end
+<VAR> - VAR <IDLIST> : <TYPE>
+<IDLIST> - id / <IDLIST>, id
+<LISTST> - < ST> / <LISTST> <ST>
+<TYPE> - int/float/bool/string
+<ST> - <READ>/<WRITE>/ <ASSIGN>
+<ASSIGN> - id := <EXP> ;
+< EXP> - < EXP> + <T> / <T>
+<T> - <T>*<F> / <F>
+<F> - <F>/ (<EXP>)/ id/num
+< READ> - READ (< IDLIST>);
+< WRITE> - WRITE (< IDLIST>);

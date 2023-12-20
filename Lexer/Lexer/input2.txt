@@ -1,0 +1,10 @@
+int iden123 = 123;
+int iden1 = 1;
+if (iden123 == iden1)
+{
+	iden1 = iden123;
+}
+else if (iden1 != iden123)
+{
+	iden123 = iden1;
+}
