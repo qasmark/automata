@@ -17,3 +17,7 @@ Convertation of DFA to NFA and converting left- and right-handed grammars to DNA
 *4 lab*
 
 Converting a regular expression into a finite deterministic automaton
+
+*5 lab*
+
+Lexical analizator for simple C-code
