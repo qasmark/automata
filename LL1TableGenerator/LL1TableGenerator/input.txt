@@ -1,6 +1,0 @@
-<var> - var <idlist> : <type> # / var
-<idlist> - id <Q> / id
-<Q> - e / :
-<Q> - , <idlist> / ,
-<type> - int / int
-<type> - float / float
